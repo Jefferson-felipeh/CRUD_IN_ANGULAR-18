@@ -1,0 +1,74 @@
+<div class="bg-slate-50 p-5 w-2/4 m-auto mb-3 shadow rounded-2xl flex-1 justify-center max-w-full">
+    <div>
+        <h1 class="text-3xl m-auto text-center font-bold hover:text-opacity-5 w-96 leading-6">Sistema de Cadastro</h1>
+    </div>
+
+    <div class="flex justify-around mt-6">
+        <span class="material-symbols-outlined bg-blue-500 py-1 px-6 cursor-pointer text-white rounded-sm hover:bg-white hover:text-blue-900" (click)="visiblePopUpCreateCustomer()">
+            shadow_add
+        </span>
+        <form>
+            <input name="name" (input)="SearchCustomer($event)">
+        </form>
+        <p>Results:
+            <span class="material-symbols-outlined border-2 border-dashed px-3 py-1 text-sm">
+                {{lengthList}}
+            </span>
+        </p>
+    </div>
+
+    <div class="mt-6">
+        <table class="table-auto divide-y divide-gray-200 w-full m-auto">
+            <thead class="px-5 py-3 bg-zinc-200"><!--Cabeçalho da tabela-->
+              <tr class="text-center"><!--Linha do cabeçalho-->
+                <th class="px-4 bg-zinc-200 text-left text-sm font-medium tracking-wider">NAME</th><!--Células do cabeçalho-->
+                <th class="bg-zinc-200 text-left text-sm font-medium tracking-wider">EMAIL</th>
+                <th class="bg-zinc-200 text-left text-sm font-medium">AGE</th>
+                <th class="bg-zinc-200 text-left text-sm font-medium">STATUS</th>
+                <th class="bg-zinc-200 text-left text-sm font-medium"></th>
+              </tr>
+            </thead>
+        
+            <!--Corpo da tabela-->
+            <tbody *ngIf="dados.length > 0; else elseNotusers" class="divide-y divide-gray-100">
+                <tr *ngFor="let user of dados">
+                    <td class="bg-white px-4 py-2 font-medium text-gray-700 text-sm whitespace-nowrap hover:bg-slate-200">{{user.name}}</td>
+                    <td class="bg-white font-medium py-2 text-gray-700 text-sm  hover:bg-slate-200">{{user.email}}</td>
+                    <td class="bg-white font-medium py-2 text-gray-700 text-sm  hover:bg-slate-200">{{user.age}}</td>
+                    <td class="bg-white px-2 font-medium py-2 hover:bg-slate-200 cursor-pointer">{{user.status == 1 ?"Ativo":"Inativo"}}</td>
+                    <td class="flex">
+                        <span class="material-symbols-outlined rounded-sm cursor-pointer text-2xl text-green-600 font-medium hover:text-green-950 p-1"  (click)="visiblePopUpUpdateCustomer()" (click)="UpdateCustomer(user.id)">
+                            border_color
+                        </span>
+                        
+                        <span class="material-symbols-outlined cursor-pointer text-2xl text-red-600 font-medium ml-3 hover:text-red-900 p-1" (click)="visiblePopUpDeleteCustomer()" (click)="CustomerDelete(user.id)">
+                            delete
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+            <ng-template #elseNotusers>
+                <div class="m-4 w-full font-medium p-2">
+                    <h3 >Nenhum Usuario Cadastrado!</h3>
+                </div>
+            </ng-template>
+        </table>
+    </div>
+</div>
+<div>
+</div>
+
+<!-- Modal para criar Customer -->
+<div *ngIf="popUpCreated">
+    <app-create-form [validar]="popUpCreated" (emiter)="inVisiblePopUpCreateCustomer()" (DataNewCustomer)="UpdateListHome($event)"></app-create-form>
+</div>
+
+<!-- Modal para atualizar Customer -->
+<div *ngIf="popUpUpdated">
+    <app-update-customer [visiblePopUpUpdated]="popUpUpdated" (emiter)="inVisiblePopUpUpdateCustomer()" [dadosCustomer]="dadosCustomerUniq" (UpdateListDatas)="UpdatedListDatas($event)"></app-update-customer>
+</div>
+
+<!-- Modal para deletar um Customer -->
+<div *ngIf="popUpDelete">
+    <app-model-confirm-del [popUpDelete]="popUpDelete" (emiter)="InvisiblePopUpDeleteCustomer()" [idCustomerDelete]="dadosDeleteCustomerUniq" (dadosDelected)="DeleteSucessfuly($event)"></app-model-confirm-del>
+</div>

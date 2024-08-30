@@ -1,0 +1,38 @@
+<div id="modalUpdated" *ngIf="visiblePopUpUpdated" class="absolute top-0 left-0 h-full w-full bg-slate-700 bg-opacity-25 flex justify-center">
+        <div class="w-2/4 bg-transparent rounded-sm flex justify-center">
+            <div class="w-2/4 h-2/5 bg-white rounded-sm mt-36 relative">
+                <button class="px-2 bg-red-500 font-bold text-xl rounded-sm absolute right-0" (click)="isInvisiblePopUp()">X</button>
+                <h2 class="font-medium text-center m-2 underline">Atualizar Cadastro</h2>
+    
+                <form class="w-full max-w-lg mt-5" >
+    
+                    <div class="flex-1 mb-6  w-full text-center justify-center">
+                      <div class="flex flex-wrap w-96 ml-3 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+                          NAME
+                        </label>
+                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 rounded py-2 px-4 mb-3 leading-tight focus:bg-white" id="grid-first-name" type="text" placeholder="Doe Lender" name="name" [(ngModel)]="newDados.name" required="required">
+                      </div>
+    
+                      <div class="flex flex-wrap w-96 px-3 ml-3 mb-2">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+                          E-MAIL
+                        </label>
+                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 rounded py-2 px-4 leading-tight focus:bg-white focus:border-gray-500" id="grid-last-name" type="email" name="email" placeholder="Doe@gmail.com" [(ngModel)]="newDados.email" required="required">
+                      </div>
+    
+                      <div class="flex-1 w-96 px-3 ml-3 mt-2 text-left">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+                          AGE
+                        </label>
+                        <input class="appearance-none block w-2/6 bg-gray-200 text-gray-700 rounded py-2 px-4 leading-tight focus:bg-white focus:border-gray-500" id="grid-last-name" type="number" name="age" [(ngModel)]="newDados.age" placeholder="18">
+                      </div>
+                    </div>
+    
+                    <div class="w-full flex justify-center">
+                        <button (click)="stopPropagation($event)" class="bg-blue-500 py-2 px-4 rounded-sm font-serif font-medium hover:bg-blue-400 hover:text-blue-100" type="submit">Atualizar</button>
+                    </div>
+                  </form>
+            </div>
+        </div>
+    </div>

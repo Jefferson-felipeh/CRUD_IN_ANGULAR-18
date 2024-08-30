@@ -1,0 +1,19 @@
+<div id="modalDelete" [@modalAnimation]="'open'" class="absolute top-0 left-0 h-full w-full bg-slate-700 bg-opacity-25 flex justify-center">
+    <div class="w-2/4 bg-transparent rounded-sm flex justify-center">
+        <div class="w-2/4 h-2/5 bg-white rounded-sm mt-36 relative">
+            <div class="w-full h-24 text-center pt-6 mb-6">
+                <span class="material-symbols-outlined text-6xl text-red-600">
+                    delete_forever
+                </span>
+            </div>
+            <div class="w-full text-center">
+                <h2 class="font-bold text-2xl mb-4">Realmente quer deletar esse usuário?</h2> 
+                <p class="text-sm my-6">Este usuário será deletado permanentemente do sistema, sem ter a possibilidade de obter os dados de volta!</p>
+            </div>
+            <div class="w-full flex justify-around mt-7 p-2">
+                <button class="py-2 px-4 bg-slate-600 text-white rounded-sm font-medium hover:text-slate-900 hover:bg-slate-200" (click)="CancelDeleteCustomer()">Cancelar</button>
+                <button class="py-2 px-4 bg-red-600 rounded-sm text-white font-medium hover:text-black hover:bg-red-200" (click)="DeleteCustomer()">Deletar</button>
+            </div>
+        </div>
+    </div>
+</div>
