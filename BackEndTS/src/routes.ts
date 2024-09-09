@@ -6,6 +6,7 @@ import { CreateCustomerController } from './controllers/CreateCustomerController
 import { DeleteCustomerController } from "./controllers/DeleteCustomerController";
 import { UpdateCustomerController } from "./controllers/UpdateCustomerController";
 import { ListUniqueCustomerController } from "./controllers/ListUniqueCustomerController";
+import schema from './Validate';
 
 export async function routes(fastify: FastifyInstance, options:FastifyPluginOptions ){
     //Rota resposável por receber a requisiçao para listar todos os usuários_
@@ -15,7 +16,11 @@ export async function routes(fastify: FastifyInstance, options:FastifyPluginOpti
     });
 
     //Rota responsável por receber os dados do formulário e cadastrar um novo usuario_
-    fastify.post('/createCustomer',(request: FastifyRequest, reply: FastifyReply) => {
+    fastify.post('/createCustomer', async (request: FastifyRequest, reply: FastifyReply) => {
+        const {error} = await schema.validate(request.body);
+        // if(error) return reply.status(400).send({error: error.details[0].message});
+        console.log(error);
+        
         const CreateCustomer = new CreateCustomerController();
         return CreateCustomer.handle(request, reply);
     });
