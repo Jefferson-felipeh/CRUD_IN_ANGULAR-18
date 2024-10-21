@@ -68,21 +68,22 @@ Prisma ORM: Ferramenta para mapeamento objeto-relacional que facilita a comunica
 
 <strong>OBS:</strong>
 <p>Cada funcionalidade da aplicação possue uma validação de dados, desde a criação de um novo cliente, validando sejá há determinadas informações no banco que já possua as caracteristicas daquele valor em que o cliente esta tentando cadastrar.</p>
-<p>Validação para listar, criar, atualizar e deletar um determinado Cliente.</p>
+<p>Logo, a aplicação possue validação para listar, criar, atualizar e deletar um determinado Cliente.</p>
 
 <h2>Preview:</h2>
 <p>Listagem do clientes cadastrados__</p>
 
-![Captura de tela 2024-08-30 142237](https://github.com/user-attachments/assets/ec66c19b-bb5a-4e88-aca8-236121a59dfb)
+![Captura de tela 2024-10-21 083750](https://github.com/user-attachments/assets/e202e881-1e41-4ea3-a517-677bb35f17d8)
 
 <p>Componente para cadastrar um novo Cliente_</p>
 
-![Captura de tela 2024-08-30 141714](https://github.com/user-attachments/assets/5f5e747e-bbfa-4f40-8469-9d595eeb82f8)
 
-<p>Componente para aatualizar as informações de um Cliente específico_</p>
+![Captura de tela 2024-10-21 083810](https://github.com/user-attachments/assets/5b0de063-d885-4387-9a73-fca34667ceed)
 
-![Captura de tela 2024-08-30 142354](https://github.com/user-attachments/assets/66fa877a-48d2-48b1-8c60-4e6ea95f791a)
+<p>Componente para atualizar as informações de um Cliente específico_</p>
+
+![Captura de tela 2024-10-21 083824](https://github.com/user-attachments/assets/6eb17909-e9c8-4e89-b1e1-d58c71073260)
 
 <p>Componente para confirmar a deleção de um cliente específico_</p>
 
-![Captura de tela 2024-08-30 142016](https://github.com/user-attachments/assets/02666c7e-beb4-42eb-83f7-de2a18c102a7)
+![Captura de tela 2024-10-21 083839](https://github.com/user-attachments/assets/064ec36e-a9e5-4bb2-a73e-640714016d3d)
